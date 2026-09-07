@@ -1,0 +1,26 @@
+div {
+    margin: auto;
+    max-width: 450px;
+}
+
+img {
+    width: 450px;
+    height: 450px;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.highlight {
+    background-color: orange;
+}
+
+.redbold {
+    color: red;
+    font-weight: bold;
+}
+
+.center {
+    text-align: center;
+}
