@@ -11,15 +11,15 @@ while (true) {
         break;
     }
     x = x.trim();
-    if (x === "") { x = null; } // Takes whitespace off input and sets empty strings to null
+    if (x === "") { x = null; } // Takes whitespace off 
     var y = prompt("Enter second value:");
     if (y === null) { // Cancelled input
         alert("Operation cancelled. Missing input for y.");
-        document.write("<tr><td>" + (x === null ? "null" : x) + "</td><td>" + (operator === null ? "null" : operator) + "</td><td>null</td><td>Operation cancelled</td></tr>");
+        document.write("<tr><td>" + (x === null ? "null" : x) + "</td><td>null</td><td>null</td><td>Operation cancelled</td></tr>");
         break;
     }
-    y = y.trim();    
-    if (y === "") { y = null; } // For this number too
+    y = y.trim();
+    if (y === "") { y = null; }
     var operator = prompt("Enter operator (+, -, *, /, %):");
     if (operator === null) { // Cancelled input
         alert("Operation cancelled. Missing input for operator.");
@@ -27,13 +27,13 @@ while (true) {
         break;
     }
     operator = operator.trim();
-    if (operator === "") { operator = null; } // And for the whitespace too you guessed it
+    if (operator === "") { operator = null; } // For Whitespace
     if (x === null || y === null) { // Cancelled numerical input
         alert("Operation cancelled. Missing input for x or y.");
         document.write("<tr><td>" + (x === null ? "null" : x) + "</td><td>" + operator + "</td><td>" + (y === null ? "null" : y) + "</td><td>Operation cancelled</td></tr>");
         break;
     }
-    else if (isNaN(x) || isNaN(y)) { // If they aren't numbers you can't do math with them
+    else if (isNaN(x) || isNaN(y)) { // If not numbers
         alert("Invalid input. Please enter numeric values for x and y.");
         document.write("<tr><td>" + x + "</td><td>" + operator + "</td><td>" + y + "</td><td>Invalid input</td></tr>");
         continue;
@@ -44,7 +44,7 @@ while (true) {
         break;
     }
     else { // Do math
-        switch (operator) { 
+        switch (operator) {
             case "+": // Addition
                 var value = Number(x) + Number(y);
                 document.write("<tr><td>" + x + "</td><td>" + operator + "</td><td>" + y + "</td><td>" + value + "</td></tr>");
@@ -74,19 +74,20 @@ while (true) {
                     results.push(value);
                 }
                 break;
-            case "%": // Modulo
+            case "%": // Mod
                 if (Number(y) === 0) {
                     alert("Error: Modulo by zero is not allowed.");
                     document.write("<tr><td>" + x + "</td><td>" + operator + "</td><td>" + y + "</td><td>Error: Modulo by zero</td></tr>");
-                } else { 
+                } else {
                     var value = Number(x) % Number(y);
                     document.write("<tr><td>" + x + "</td><td>" + operator + "</td><td>" + y + "</td><td>" + value + "</td></tr>");
                     alert(`${x} % ${y} = ${value}`);
                     results.push(value);
                 }
                 break;
-            default:
+            default: // Operator not good
                 alert("Invalid operator. Please enter one of +, -, *, /, %.");
+                document.write("<tr><td>" + x + "</td><td>" + operator + "</td><td>" + y + "</td><td>Error: Invalid operator</td></tr>");
                 break;
         }
     }
